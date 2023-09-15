@@ -29,6 +29,8 @@ from . import __version__, stats as _stats, utils as _utils, plots as _plots
 from dateutil.relativedelta import relativedelta
 from io import StringIO
 
+from .additional_features import AdditionalFeatures
+
 try:
     from IPython.display import display as iDisplay, HTML as iHTML
 except ImportError:
@@ -552,6 +554,9 @@ def html(
 
     tpl = _regex.sub(r"\{\{(.*?)\}\}", "", tpl)
     tpl = tpl.replace("white-space:pre;", "")
+
+    additional_features = AdditionalFeatures()
+    tpl = additional_features(tpl, **kwargs)
 
     if output is None:
         # _open_html(tpl)
