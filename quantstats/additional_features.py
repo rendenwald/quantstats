@@ -34,7 +34,7 @@ class AdditionalFeatures:
             for ticker, value in datas.items():
                 if datapoints:
                     datapoints += ","
-                datapoints += f'{{y: {float(value):.2f}, label: "{ticker}"}}'
+                datapoints += f'{{y: {float(value):.4f}, label: "{ticker}"}}'
             return datapoints
 
         # Get left div, this element contains all charts
