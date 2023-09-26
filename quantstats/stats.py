@@ -534,7 +534,7 @@ def cagr(returns, rf=0.0, compounded=True, periods=252):
     else:
         total = _np.sum(total)
 
-    years = (returns.index[-1] - returns.index[0]).days / periods
+    years = len(returns.index) / periods
 
     res = abs(total + 1.0) ** (1.0 / years) - 1
 
